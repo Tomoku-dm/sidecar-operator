@@ -1,0 +1,24 @@
+# permissions for end users to edit mwservices.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mwservice-editor-role
+rules:
+- apiGroups:
+  - mwservice.tomcat.com
+  resources:
+  - mwservices
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - mwservice.tomcat.com
+  resources:
+  - mwservices/status
+  verbs:
+  - get
